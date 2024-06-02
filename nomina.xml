@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<empleado>
+		<nombre>user</nombre>
+		<RFC>XXXX</RFC>
+	</empleado>
+	<empresa>
+		<nombre>empresa1</nombre>
+	</empresa>
+	<nominaDetalle>
+		<clave>123</clave>
+		<concepto>Lorem ipsum dolor</concepto>
+		<importe>123</importe>
+		<diasLaborados>2</diasLaborados>
+		<totalPercepciones>100</totalPercepciones>
+		<totalDeducciones>50</totalDeducciones>
+	</nominaDetalle>
+	<movimientos>
+		<tipo>prestacion</tipo>
+		<nombre>Lorem</nombre>
+		<importe>122</importe>
+	</movimientos>
+	<movimientos>
+		<tipo>deduccion</tipo>
+		<nombre>Lorem</nombre>
+		<importe>111</importe>
+	</movimientos>
+</root>
