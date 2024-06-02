@@ -4,6 +4,7 @@ namespace App\Logic\Payroll;
 
 use App\Models\Company;
 use App\Models\Employee;
+use App\Models\Payroll;
 
 class CreateLogic
 {
@@ -27,6 +28,21 @@ class CreateLogic
             'rfc' => $json->empleado->rfc ?? '',
             'curp' => $json->empleado->curp ?? ''
         ]);
+
+
+        $payroll = new Payroll;
+
+        $payroll->description = $json->nominaDetalle->concepto;
+        $payroll->quantity = $json->nominaDetalle->importe;
+        $payroll->days_worked = $json->nominaDetalle->diasLaborados;
+        $payroll->clave = $json->nominaDetalle->clave;
+        $payroll->total_payments = $json->nominaDetalle->totalPercepciones;
+        $payroll->total_deductions = $json->nominaDetalle->totalDeducciones;
+
+        $payroll->company()->associate($company);
+        $payroll->employee()->associate($employee);
+
+        $payroll->save();
 
 
         return $json;
