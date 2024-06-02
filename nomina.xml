@@ -2,7 +2,8 @@
 <root>
 	<empleado>
 		<nombre>user</nombre>
-		<RFC>XXXX</RFC>
+		<rfc>XXXX</rfc>
+		<curp>XXXX</curp>
 	</empleado>
 	<empresa>
 		<nombre>empresa1</nombre>

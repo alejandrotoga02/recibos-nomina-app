@@ -4,9 +4,16 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Logic\Payroll\CreateLogic;
 
 class PayrollReceiptController extends Controller
 {
+    protected $createLogic;
+
+    public function __construct(CreateLogic $createLogic)
+    {
+        $this->createLogic = $createLogic;
+    }
 
     /**
      * Store a new payroll.
@@ -18,19 +25,8 @@ class PayrollReceiptController extends Controller
     {
         $bodyContent = $request->getContent();
 
-        if (!$this->is_valid_xml($bodyContent)) {
-            dd("Error");
-        }
+        $data = $this->createLogic->init($bodyContent);
 
-        $json = json_encode(simplexml_load_string($bodyContent));
-        $json = json_decode($json);
-        dd($json);
-    }
-
-    function is_valid_xml($content)
-    {
-        libxml_use_internal_errors(true);
-        $doc = simplexml_load_string($content);
-        return ($doc !== false);
+        return response()->json($data);
     }
 }
