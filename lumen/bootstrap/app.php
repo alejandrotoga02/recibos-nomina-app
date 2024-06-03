@@ -61,6 +61,7 @@ $app->singleton(
 
 $app->configure('app');
 
+$app->configure('dompdf');
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -94,6 +95,8 @@ $app->configure('app');
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+
+$app->register(\Barryvdh\DomPDF\ServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
